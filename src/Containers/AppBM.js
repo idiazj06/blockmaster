@@ -5,13 +5,16 @@ import NavBar from '../Components/NavBar'
 
 const AppBM = () => {
 
-    const [search,setSearch] = useState('popular')
+    const [seccion,setSeccion] = useState('popular')
+    const [search,setSearch] = useState('')
+
+    console.log(search)
     
 
     return (
         <div>
-           <NavBar busqueda={search} estado={setSearch} />
-           <ApiFetch dato={search}/> 
+           <NavBar estado={setSeccion} estadoSearch={setSearch}/>
+           <ApiFetch dato={seccion} datoSearch={search}/> 
         </div>
     )
 
