@@ -22,7 +22,7 @@ export default class AppRouter extends Component {
             <div>
                <Router>               
                     <Switch>
-                        <Route  path="/Login" component={Login}  />
+                        <Route exact  path="/" component={Login}  />
                         <Route  path="/Register" component={Register}  />
                         <Route  path="/Peliculas" component={AppBM}  />
                     </Switch>                    

@@ -5,7 +5,7 @@ import NavBar from '../Components/NavBar'
 
 const AppBM = () => {
 
-    const [seccion,setSeccion] = useState('popular')
+    const [seccion,setSeccion] = useState('Todas las peliculas')
     const [search,setSearch] = useState('')
 
     console.log(search)
