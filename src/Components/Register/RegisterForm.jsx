@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import { Formulario, Labels, Inputs, Buttons} from '../Styled/Styles'
+import { Link, NavLink } from 'react-router-dom'
 
 const RegisterForm = ({Registro,error}) => {
 
@@ -15,11 +17,11 @@ const RegisterForm = ({Registro,error}) => {
         Registro(datos)
     }
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <>
+            <Formulario onSubmit={handleSubmit}>
 
-                <label htmlFor="nombre">Nombre</label>
-                <input
+                <Labels htmlFor="nombre">Nombre</Labels>
+                <Inputs
                     type="text"
                     name="nombre"
                     id="nombre"
@@ -28,8 +30,8 @@ const RegisterForm = ({Registro,error}) => {
                     onChange={e=>setDatos({...datos, nombre:e.target.value})} value={datos.nombre}
                 />
 
-                <label htmlFor="apellido">Apellido</label>
-                <input
+                <Labels htmlFor="apellido">Apellido</Labels>
+                <Inputs
                     type="text"
                     name="apellido"
                     id="apellido"
@@ -38,8 +40,8 @@ const RegisterForm = ({Registro,error}) => {
                     onChange={e=>setDatos({...datos, apellido:e.target.value})} value={datos.apellido}
                 />
 
-                <label htmlFor="Email">Email</label>
-                <input
+                <Labels htmlFor="Email">Email</Labels>
+                <Inputs
                     type="email"
                     name="Email"
                     id="Email"
@@ -48,8 +50,8 @@ const RegisterForm = ({Registro,error}) => {
                     onChange={e=>setDatos({...datos, email:e.target.value})} value={datos.email}
                 />
 
-                <label htmlFor="password">Contraseña</label>
-                <input
+                <Labels htmlFor="password">Contraseña</Labels>
+                <Inputs
                     type="password"
                     name="password"
                     id="password"
@@ -58,12 +60,14 @@ const RegisterForm = ({Registro,error}) => {
                     onChange={e=>setDatos({...datos, password:e.target.value})} value={datos.password}
                 />
 
-                <input
+                <Buttons
                     type="submit" 
                     value="Registrarme"
                 />
-            </form>
-        </div>
+
+                <span>¿Ya tienes una cuenta? <Link to="/Login">Inicia Sesion</Link></span>
+            </Formulario>
+        </>
     )
 }
 

@@ -126,4 +126,50 @@ export const BtnDespues = BtnDespuesStyle
 export const Badge = BadgeStyle
 export const Perfil = PerfilStyle
 
+/* -----------------------------------------------------LOGIN----------------------------------------------------- */
+const ContenedorLogin = styled.div`
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    width:100%;
+`;
+const ContenedorFormulario = styled.form`
+    display:flex;
+    flex-direction:column;
+    width:40%;
+    padding:40px;
+    align-items:center;
+`;
+
+const LabelsStyle = styled.label`
+    padding:20px 10px;
+    text-align:left;
+    width:100%;
+    border-radius:10px;
+`;
+const InputsStyle = styled.input`
+    padding:10px 5px;
+    text-align:left;
+    width:100%;
+    border-radius:10px;
+`;
+const ButtonsStyle = styled.input`
+    padding:10px;
+    margin:10% 0 5% 0;
+    width:40%;
+    border-radius:10px;
+    background:#FED941;
+`;
+
+export const Contenedor = ContenedorLogin
+export const Formulario = ContenedorFormulario
+export const Labels = LabelsStyle
+export const Inputs = InputsStyle
+export const Buttons = ButtonsStyle
+
+/* --------------------------------------------------REGISTER-------------------------------------------------- */
+
+
 

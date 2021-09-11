@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import RegisterForm from './RegisterForm'
 
+
 import axios from 'axios'
 import md5 from 'md5'
 import uuid from 'react-uuid'
+
+import {Contenedor} from '../Styled/Styles'
 
 const url = 'https://api-blockmaster.herokuapp.com/users' //Data de usuarios
 
@@ -38,9 +41,9 @@ const Register = () => {
 
 
     return (
-        <div>
+        <Contenedor>
             <RegisterForm Registro={Registro} error={error} />
-        </div>
+        </Contenedor>
     )
 }
 

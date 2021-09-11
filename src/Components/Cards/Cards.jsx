@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Modal } from 'reactstrap'
-import { Tarjetas, ModalHeader, ModalBody, ModalBodyOverview, ModalBodyImg, InputClose, BtnTrailer, BtnDespues, Badge} from './Styled/Styles'
+import { Tarjetas, ModalHeader, ModalBody, ModalBodyOverview, ModalBodyImg, InputClose, BtnTrailer, BtnDespues, Badge} from '../Styled/Styles'
 import ModalVideo from './ModalVideo';
 
 
@@ -15,7 +15,9 @@ const Cards = ({ personaje }) => {
     const [modalVideo, setModalVideo] = useState(false)
 
     const openOverview = () => { setModal(!modal) }
-    const openVideo = () => { setModalVideo(!modalVideo) }
+    const openVideo = () => { 
+        setModalVideo(!modalVideo) 
+        setModal(!modal) }
 
     return (
         <Tarjetas onClick={openOverview} >

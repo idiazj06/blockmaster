@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Cards from './Cards'
-import { ContCards } from './Styled/Styles'
+import { ContCards } from '../Styled/Styles'
 
 const ApiFetch = ({ dato, datoSearch }) => {
 

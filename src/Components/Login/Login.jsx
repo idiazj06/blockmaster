@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import md5 from 'md5'
 import LoginForm from './LoginForm'
+import {Contenedor} from '../Styled/Styles'
 
 const url = 'https://api-blockmaster.herokuapp.com/users' //Data de usuarios
 
@@ -39,9 +40,9 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <Contenedor>
             <LoginForm Login={Login} error={error} />
-        </div>
+        </Contenedor>
     )
 }
 

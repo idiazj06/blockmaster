@@ -22,11 +22,12 @@ export default class AppRouter extends Component {
             <div>
                <Router>               
                     <Switch>
-                        <Route exact  path="/" component={Login}  />
+                        
                         <Route  path="/Register" component={Register}  />
                         <Route  path="/Peliculas" component={AppBM}  />
+                        <Route exact  path="/Login" component={Login}  />
                     </Switch>                    
-                    {/* <Redirect to="/"  /> */}
+                    {/* <Redirect to="/Login"  /> */}
                </Router> 
             </div>
         )

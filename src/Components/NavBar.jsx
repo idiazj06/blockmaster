@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import { Link, NavLink } from 'react-router-dom'
 import { IoPersonCircleSharp } from "react-icons/io5";
-import { Perfil} from './Cards/Styled/Styles'
+import { Perfil} from './Styled/Styles'
 
 const NavBar = ({estado, estadoSearch}) => {
 
@@ -24,7 +24,7 @@ const NavBar = ({estado, estadoSearch}) => {
         <div>
             <nav className="navbar navbar-expand-lg navbar-light ">
                 <div className="container-fluid">
-                    <Link className="navbar-brand text-white" to="/"><img src="https://res.cloudinary.com/duaokxfsp/image/upload/v1631319195/BLOCKMASTER/logo-blockBuster_1_ecwv3y.png" alt="" /></Link>
+                    <Link className="navbar-brand text-white" to="/Peliculas"><img src="https://res.cloudinary.com/duaokxfsp/image/upload/v1631319195/BLOCKMASTER/logo-blockBuster_1_ecwv3y.png" alt="" /></Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-conttols="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -49,28 +49,28 @@ const NavBar = ({estado, estadoSearch}) => {
                                 >Register</Link>
                             </li> */}
                             <li className="nav-item ">
-                                <Link
+                                <NavLink
                                 name="Todas las peliculas"
                                 className="nav-link text-white" 
                                 to="/Peliculas"
                                 onClick={handleClick}
-                                >Todas</Link>
+                                >Todas</NavLink>
                             </li>
                             <li className="nav-item ">
-                                <Link
+                                <NavLink
                                 name="Peliculas más valoradas"
                                 className="nav-link text-white" 
                                 to="/Peliculas"
                                 onClick={handleClick}
-                                >Mas Valoradas</Link>
+                                >Mas Valoradas</NavLink>
                             </li>
                             <li className="nav-item ">
-                                <Link
+                                <NavLink
                                 name="Peliculas menos valoradas"
                                 className="nav-link text-white" 
                                 to="/Peliculas"
                                 onClick={handleClick}
-                                >Menos Valoradas</Link>
+                                >Menos Valoradas</NavLink>
                             </li>
                         </ul>
                         

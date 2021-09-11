@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { Formulario, Labels, Inputs, Buttons} from '../Styled/Styles'
+import { Link, NavLink } from 'react-router-dom'
 
 const Login = ({Login, error}) => {
 
@@ -11,31 +13,35 @@ const Login = ({Login, error}) => {
     
     
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <>
+            <Formulario onSubmit={handleSubmit}>
                 <h1>LOGIN</h1>
-                <label htmlFor="email">Email:</label>
-                <input 
+                <Labels htmlFor="email">Email:</Labels>
+                <Inputs 
                 type="email" 
                 id="email" 
                 placeholder="Ingrese su email"
                 onChange={e=>setDatos({...datos, email:e.target.value})} value={datos.email} 
                 />
 
-                <label htmlFor="password">Contraseña:</label>
-                <input 
+                <Labels htmlFor="password">Contraseña:</Labels>
+                <Inputs 
                 type="password" 
                 id="password" 
                 placeholder="Ingrese su Contraseña"
                 onChange={e=>setDatos({...datos, password:e.target.value})} value={datos.password} 
                 />
 
-                <input 
+                <Buttons 
                 type="submit" v
                 alue="Enviar"
                 />
-            </form>
-        </div>
+
+                <span>¿Aun no tienes una cuenta?, <Link to="/Register">Registrate</Link></span>
+
+                
+            </Formulario>
+        </>
     )
 }
 
