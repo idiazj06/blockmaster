@@ -25,7 +25,7 @@ const Cards = ({ personaje }) => {
     return (
         <Tarjetas onClick={openOverview} >
             <div className="tarjetas">
-                <Badge >⭐{personaje.vote_average.toFixed(1)}</Badge>
+                <Badge style={(personaje.vote_average >= 8)?({"border": "1px solid green", "borderLeftStyle": "none"}):(personaje.vote_average > 5)?({"border": "1px solid yellow", "borderLeftStyle": "none"}):({"border": "1px solid red", "borderLeftStyle": "none"})}>⭐{personaje.vote_average.toFixed(1)}</Badge>
                 <ImgCard src={poster} className="card-img-top" height="330px" alt={personaje.title} />
             </div>
 

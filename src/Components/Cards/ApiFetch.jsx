@@ -8,7 +8,6 @@ const ApiFetch = ({ dato, datoSearch, dataCarousel }) => {
     let url = ''
     const [movies, setMovies] = useState([])
     const [page, setPage] = useState(1)
-    
 
 
     if (datoSearch.length > 0) {
@@ -22,6 +21,7 @@ const ApiFetch = ({ dato, datoSearch, dataCarousel }) => {
     useEffect(() => {
 
         obtenerDatos()
+        
         
 
     }, [datoSearch])
@@ -39,10 +39,11 @@ const ApiFetch = ({ dato, datoSearch, dataCarousel }) => {
         const res = await fetch(url)
         const data = await res.json()
 
-        console.log(data)
+        
 
         setMovies(data.results)
         dataCarousel(data.results)
+        
     }
 
 
@@ -70,7 +71,7 @@ const ApiFetch = ({ dato, datoSearch, dataCarousel }) => {
             <H1SeccionPeliculas>{dato}</H1SeccionPeliculas>
             <ContCards>
                 {
-
+                   
                     dato == 'Todas las peliculas' ?
                         movies.map(data => (
                             <Cards
