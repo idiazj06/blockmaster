@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Cards from './Cards'
-import { ContCards } from '../Styled/Styles'
+import { ContCards, ContSpinner,H1SeccionPeliculas } from '../Styled/Styles'
+import { Spinner } from 'react-bootstrap';
 
-const ApiFetch = ({ dato, datoSearch }) => {
+const ApiFetch = ({ dato, datoSearch, dataCarousel }) => {
 
     let url = ''
     const [movies, setMovies] = useState([])
-    const [movies2, setMovies2] = useState([])
     const [page, setPage] = useState(1)
+    
 
 
     if (datoSearch.length > 0) {
@@ -21,6 +22,7 @@ const ApiFetch = ({ dato, datoSearch }) => {
     useEffect(() => {
 
         obtenerDatos()
+        
 
     }, [datoSearch])
 
@@ -37,7 +39,10 @@ const ApiFetch = ({ dato, datoSearch }) => {
         const res = await fetch(url)
         const data = await res.json()
 
+        console.log(data)
+
         setMovies(data.results)
+        dataCarousel(data.results)
     }
 
 
@@ -46,6 +51,7 @@ const ApiFetch = ({ dato, datoSearch }) => {
         const data = await res.json()
 
         setMovies([...movies, ...data.results])
+        dataCarousel([...movies, ...data.results])
     }
 
 
@@ -61,7 +67,7 @@ const ApiFetch = ({ dato, datoSearch }) => {
 
     return (
         <div>
-            <h1>{dato}</h1>
+            <H1SeccionPeliculas>{dato}</H1SeccionPeliculas>
             <ContCards>
                 {
 
@@ -78,9 +84,7 @@ const ApiFetch = ({ dato, datoSearch }) => {
                                     personaje={data}
                                 />
                             )) : dato == 'Peliculas menos valoradas' ?
-                                // console.log('es less')
                                 movies.filter(voto => voto.vote_average < 7).map(data => (
-                                    // console.log(data)
                                     <Cards
                                         key={data.id}
                                         personaje={data}
@@ -88,6 +92,9 @@ const ApiFetch = ({ dato, datoSearch }) => {
                                 )) : console.log('no existe')
                 }
             </ContCards>
+            <ContSpinner>
+                <Spinner animation="border" variant="warning" />
+            </ContSpinner>
         </div>
     )
 }

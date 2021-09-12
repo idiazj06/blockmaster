@@ -319,3 +319,37 @@ export const ImgCard = ImgCardStyle
  export const InputSearch = InputSearchStyle
  export const ButtonSearch = ButtonSearchStyle
  export const FormSearch = FormSearchStyle
+
+ /* ------------------------------------------------CARRUSEL------------------------------------------------ */
+
+ const ContSwiperStyle = styled.div`
+    width:500%;
+    
+ `;
+
+ export const ContSpinner = styled.div`
+    margin-bottom:100px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+ `;
+
+ const ImgSwiperStyle = styled.img`
+    height:320px;
+    object-fit:cover;
+    width:100%;   
+ `;
+
+ export const ContSwiper = ContSwiperStyle
+ export const ImgSwiper = ImgSwiperStyle
+
+
+ export const FontNav = styled.div`
+ font-family: 'Inter', sans-serif;
+ `;
+
+ export const H1SeccionPeliculas =  styled.h1`
+   color:white;
+   font-family: 'Montserrat', sans-serif; 
+   padding: 10px 20px 0 20px;
+ `;

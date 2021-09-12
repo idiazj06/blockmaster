@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Modal } from 'reactstrap'
-import { Tarjetas, ModalHeader, ModalBody, ModalBodyOverview, ModalBodyImg, InputClose, BtnTrailer, BtnDespues, Badge, ImgCard} from '../Styled/Styles'
+import { Tarjetas, ModalHeader, ModalBody, ModalBodyOverview, ModalBodyImg, InputClose, BtnTrailer, BtnDespues, Badge, ImgCard } from '../Styled/Styles'
 import ModalVideo from './ModalVideo';
 
 
@@ -15,9 +15,12 @@ const Cards = ({ personaje }) => {
     const [modalVideo, setModalVideo] = useState(false)
 
     const openOverview = () => { setModal(!modal) }
-    const openVideo = () => { 
-        setModalVideo(!modalVideo) 
-        setModal(!modal) }
+    const openVideo = () => {
+        setModalVideo(!modalVideo)
+        setModal(!modal)
+    }
+
+
 
     return (
         <Tarjetas onClick={openOverview} >
@@ -26,20 +29,13 @@ const Cards = ({ personaje }) => {
                 <ImgCard src={poster} className="card-img-top" height="330px" alt={personaje.title} />
             </div>
 
-            {/* <iframe src='https://www.youtube.com/embed/E7wJTI-1dvQ'
-                frameBorder='0'
-                allow='autoplay; encrypted-media'
-                allowFullScreen
-                title='video'
-            /> */}
-
             <Modal isOpen={modal} size={'lg'} contentClassName="bg-dark bg-opacity-50"  >
                 <ModalHeader>
                     <InputClose
                         type="button"
                         value="X"
                         onClick={openOverview}
-                        
+
                     />
                 </ModalHeader>
                 <ModalBody>
@@ -50,8 +46,8 @@ const Cards = ({ personaje }) => {
                             <span>{personaje.overview}</span>
                         </div>
                         <div className="buttons">
-                        <BtnTrailer type="button" value="Ver trailer" onClick={openVideo} />
-                        <BtnDespues type="button" value="+ Ver despues" onClick={openVideo} />
+                            <BtnTrailer type="button" value="Ver trailer" onClick={openVideo} />
+                            <BtnDespues type="button" value="+ Ver despues" onClick={openVideo} />
                         </div>
                     </ModalBodyOverview>
 
@@ -68,7 +64,7 @@ const Cards = ({ personaje }) => {
                     />
                 </ModalHeader>
                 <ModalBody>
-                    <ModalVideo item={personaje}/>
+                    <ModalVideo item={personaje} />
                 </ModalBody>
 
             </Modal>

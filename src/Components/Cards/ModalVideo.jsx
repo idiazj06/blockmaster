@@ -11,7 +11,7 @@ const ModalVideo = ({ item }) => {
     }, [item.id])
 
     const obtenerDatos = async () => {
-        const res = await fetch(`https://api.themoviedb.org/3/movie/${item.id}/videos?api_key=0ca79cfff3d14ef15bb56bac5dad90f8&language=es-ES`)
+        const res = await fetch(`https://api.themoviedb.org/3/movie/${item.id}/videos?api_key=0ca79cfff3d14ef15bb56bac5dad90f8&language=us-US`)
         const data = await res.json()
 
         setGetVideo(data.results[0].key)

@@ -4,7 +4,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import { Link, NavLink, useHistory } from 'react-router-dom'
 import { IoPersonCircleSharp } from "react-icons/io5";
 import { Perfil } from './Styled/Styles'
-import { InputSearch, ButtonSearch, FormSearch } from './Styled/Styles'
+import { InputSearch, ButtonSearch, FormSearch,FontNav } from './Styled/Styles'
 import { FaSearch } from 'react-icons/fa';
 
 const NavBar = ({ estado, estadoSearch }) => {
@@ -38,30 +38,30 @@ const NavBar = ({ estado, estadoSearch }) => {
                     </button>
                     <div className="collapse navbar-collapse " id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item ">
+                            <FontNav className="nav-item ">
                                 <NavLink
                                     name="Todas las peliculas"
                                     className="nav-link text-white"
                                     to="/Peliculas"
                                     onClick={handleClick}
                                 >Todas</NavLink>
-                            </li>
-                            <li className="nav-item ">
+                            </FontNav>
+                            <FontNav className="nav-item ">
                                 <NavLink
                                     name="Peliculas más valoradas"
                                     className="nav-link text-white"
                                     to="/Peliculas"
                                     onClick={handleClick}
                                 >Mas Valoradas</NavLink>
-                            </li>
-                            <li className="nav-item ">
+                            </FontNav>
+                            <FontNav className="nav-item ">
                                 <NavLink
                                     name="Peliculas menos valoradas"
                                     className="nav-link text-white"
                                     to="/Peliculas"
                                     onClick={handleClick}
                                 >Menos Valoradas</NavLink>
-                            </li>
+                            </FontNav>
                         </ul>
 
                         <FormSearch className="d-flex" onSubmit={handleSubmit}>
