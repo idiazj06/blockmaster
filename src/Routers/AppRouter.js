@@ -9,9 +9,8 @@ import {
 
 import Login from '../Components/Login/Login'
 import Register from '../Components/Register/Register'
-import ApiFetch from '../Components/Cards/ApiFetch'
 import AppBM from '../Containers/AppBM'
-import NavBar from '../Components/NavBar'
+import Perfil from '../Components/Perfil'
 
 
 
@@ -21,13 +20,12 @@ export default class AppRouter extends Component {
             
             <div>
                <Router>               
-                    <Switch>
-                        
-                        <Route  path="/Register" component={Register}  />
-                        <Route  path="/Peliculas" component={AppBM}  />
-                        <Route exact  path="/Login" component={Login}  />
-                    </Switch>                    
-                    {/* <Redirect to="/Login"  /> */}
+                    <Switch>                        
+                        <Route exact  path="/Perfil" component={Perfil}  />
+                        <Route exact  path="/Register" component={Register}  />
+                        <Route exact  path="/Peliculas" component={AppBM}  />
+                        <Route exact  path="/" component={Login}  />
+                    </Switch>                  
                </Router> 
             </div>
         )

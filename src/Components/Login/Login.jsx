@@ -1,47 +1,91 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import md5 from 'md5'
 import LoginForm from './LoginForm'
-import {Contenedor} from '../Styled/Styles'
+import { Contenedor } from '../Styled/Styles'
+import { Link , useHistory } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 const url = 'https://api-blockmaster.herokuapp.com/users' //Data de usuarios
 
 const Login = () => {
 
-    const [user, setUser] = useState({ email: "", password: "" });
-    const [error, setError] = useState("");
+    const history = useHistory()
 
-    const Login = async datos =>{
-        console.log(datos)
-        await axios.get(url,{
-            params:{
-                email:datos.email,
-                password:md5(datos.password)
+    const [check, setCheck] = useState(false)
+    const [datosLogin, setDatosLogin] = useState('')
+
+    const Login = async datos => {
+        await axios.get(url, {
+            params: {
+                email: datos.email,
+                password: md5(datos.password)
             }
         })
-        .then(respuesta=>{
-            return respuesta.data
-        })
-        .then(respuesta=>{
-            if(respuesta.length > 0){
-                var res = respuesta[0];
-                alert(`Bienvenido ${res.nombre} ${res.apellido}`);
-            }else{
-                alert('El usuario o la contraseña no son correctos');
-            }
-        })
-        .catch(error=>{
-            console.log(error)
-        })
+            .then(respuesta => {
+                return respuesta.data
+            })
+            .then(respuesta => {
+                if (respuesta.length > 0) {
+                    var res = respuesta[0];
+                    Swal.fire(`Bienvenido ${res.nombre} ${res.apellido}`)
+                    .then(response=>{
+                        console.log(response)
+                        if(response.isConfirmed === true){
+                            handleRedirect()
+                        }
+                    });
+                    setDatosLogin(respuesta[0])
+                    subirData(datosLogin)
+                    // 
+                } else {
+                    Swal.fire({title:'El usuario o la contraseña no son correctos',icon:'warning'});
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
-    const LogOut = () =>{
-        console.log('Logout')
+    useEffect(() => {
+        subirData()
+    }, [datosLogin])
+
+    const handleChange = (e) => {
+        setCheck(!check)
+        console.log(check)
     }
+
+    const handleRedirect = () => {
+        history.push('/peliculas')
+    }
+
+    const subirData = () => {
+        if (check === true) {
+            localStorage.setItem('datosSesion',JSON.stringify(datosLogin))
+            sessionStorage.removeItem('datosSesion')            
+        } else {
+            sessionStorage.setItem('datosSesion',JSON.stringify(datosLogin))
+            localStorage.removeItem('datosSesion')
+        }
+    }
+
+
 
     return (
         <Contenedor>
-            <LoginForm Login={Login} error={error} />
+            <LoginForm Login={Login} />
+            <span>
+                <label htmlFor="valSes">Manetener sesion iniciada</label>
+                <input
+                    type="checkbox"
+                    name=""
+                    id="valSes"
+                    onChange={handleChange}
+                />
+            </span>
+
+            <span>¿Aun no tienes una cuenta?, <Link to="/Register">Registrate</Link></span>
         </Contenedor>
     )
 }

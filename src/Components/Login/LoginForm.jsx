@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Formulario, Labels, Inputs, Buttons} from '../Styled/Styles'
 import { Link, NavLink } from 'react-router-dom'
 
-const Login = ({Login, error}) => {
+const Login = ({Login}) => {
 
     const [datos, setDatos] = useState({email:"", password:""});
     
@@ -37,7 +37,7 @@ const Login = ({Login, error}) => {
                 alue="Enviar"
                 />
 
-                <span>¿Aun no tienes una cuenta?, <Link to="/Register">Registrate</Link></span>
+                {/* <span>¿Aun no tienes una cuenta?, <Link to="/Register">Registrate</Link></span> */}
 
                 
             </Formulario>

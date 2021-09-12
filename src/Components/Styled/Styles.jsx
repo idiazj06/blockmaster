@@ -6,6 +6,9 @@ padding:20px 10px;
 font-size:40px;
 text-align:center;
 color:white;
+    &:hover{
+        color:#FED941;
+    }
 `;
 
 const ContenedorCards = styled.div`
@@ -118,7 +121,7 @@ export const Tarjetas = ContTarjetas
 export const ModalBody = ModalBodyStyle
 export const ModalBodyOverview = ModalBodyOverviewStyle
 export const ModalHeader = ModalHeaderStyle
-export const ModalBodyImg =  ModalBodyImgStyle
+export const ModalBodyImg = ModalBodyImgStyle
 
 export const InputClose = buttonCerrarModal
 export const BtnTrailer = BtnTrailerStyle
@@ -126,9 +129,10 @@ export const BtnDespues = BtnDespuesStyle
 export const Badge = BadgeStyle
 export const Perfil = PerfilStyle
 
-/* -----------------------------------------------------LOGIN----------------------------------------------------- */
+/* -----------------------------------------------------LOGIN Y REGISTER------------------------------------- */
 const ContenedorLogin = styled.div`
     display:flex;
+    flex-direction:column;
     align-items:center;
     justify-content:center;
     text-align:center;
@@ -138,8 +142,8 @@ const ContenedorLogin = styled.div`
 const ContenedorFormulario = styled.form`
     display:flex;
     flex-direction:column;
-    width:40%;
-    padding:40px;
+    width:80%;
+    padding:20px 40px;
     align-items:center;
 `;
 
@@ -158,7 +162,7 @@ const InputsStyle = styled.input`
 const ButtonsStyle = styled.input`
     padding:10px;
     margin:10% 0 5% 0;
-    width:40%;
+    width:60%;
     border-radius:10px;
     background:#FED941;
 `;
@@ -169,7 +173,149 @@ export const Labels = LabelsStyle
 export const Inputs = InputsStyle
 export const Buttons = ButtonsStyle
 
-/* --------------------------------------------------REGISTER-------------------------------------------------- */
+/* --------------------------------------------------PERFIL-------------------------------------------------- */
+const ContenedorPerfilStyle = styled.div`
+    width:70%;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:40px;
+    color:white;
+`;
+
+const ContenedorSpansStyle = styled.div`
+    width:100%;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:20px;
+`;
+
+const ImgPerfilStyle = styled.img`
+    border-radius:100%;
+    width:170px;
+    height:170px;
+    object-fit:cover;
+    margin-bottom:40px;
+
+`;
+
+const LabelPerfilStyle = styled(LabelsStyle)`
+    color:white
+`;
+
+const FormPerfilStyle = styled.form`
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+`;
+
+const InputFormPerfilStyle = styled.input`
+    width:70%;
+    margin:auto;
+    padding:8px;
+    border-radius:10px;
+`;
+const LabelFormPerfilStyle = styled.label`
+    padding:20px 10px;
+    text-align:center;
+    width:100%;
+    border-radius:10px;
+    color:white;
+`;
+const ButtonFormPerfilStyle = styled(ButtonsStyle)`
+    width:40%;
+    border-radius:10px;
+    color:gray;
+    &:hover{
+        background:#07c637
+        color:white;
+    }
+`;
+
+const ContReturnHomeStyle = styled.div`
+    padding:0 40px;
+    width:100%;
+    text-align:center;
+    margin-top:10px
+    
+`;
+
+const SpanEditarStyle = styled.span`
+    color:gray;
+    border:2px solid green;
+    padding:5px;
+    margin-bottom:10px;
+    border-radius:5px;
+    cursor:pointer;
+        &:hover{
+            color:white;
+            background:green;
+        }
+`;
+
+const SpanEliminarStyle = styled.span`
+    color:gray;
+    border:2px solid red;
+    padding:5px;
+    margin-bottom:10px;
+    border-radius:5px;
+    cursor:pointer;
+    &:hover{
+        color:white;
+        background:red;
+    }
+`;
+
+export const ImgPerfil = ImgPerfilStyle
+export const ContenedorPerfil = ContenedorPerfilStyle
+export const ContenedorSpans = ContenedorSpansStyle
+export const LabelPerfil = LabelPerfilStyle
+export const FormPerfil = FormPerfilStyle
+export const InputFormPerfil = InputFormPerfilStyle
+export const LabelFormPerfil = LabelFormPerfilStyle
+export const ButtonFormPerfil = ButtonFormPerfilStyle
+export const ReturnHome = ContReturnHomeStyle
+export const SpanEditar = SpanEditarStyle
+export const SpanEliminar = SpanEliminarStyle
 
 
+/* -------------------------------------------------CARDS------------------------------------------------- */
 
+const ImgCardStyle = styled.img`
+    border-radius:10px;
+    box-shadow: 0px 7px 26px 4px rgba(0,0,0,0.51);
+`;
+
+export const ImgCard = ImgCardStyle
+
+/* -------------------------------------------------NAVBAR------------------------------------------------- */
+ const InputSearchStyle = styled.input`
+    border-top-left-radius:10px;
+    border-bottom-left-radius:10px;
+    width:90%;
+    padding:10px;
+    border:none;
+ `;
+ const ButtonSearchStyle = styled.button`
+    width:10%;
+    margin:auto;
+    background:#FED941;
+    padding:12px;
+    border-top-right-radius:10px;
+    border-bottom-right-radius:10px;
+    border:none;
+ `;
+
+ const FormSearchStyle = styled.form`
+    border: 1px solid #FED941;
+    border-radius:10px;
+    width:50%;
+    bakcground:#FED941;
+ `;
+
+ export const InputSearch = InputSearchStyle
+ export const ButtonSearch = ButtonSearchStyle
+ export const FormSearch = FormSearchStyle

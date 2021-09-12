@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Modal } from 'reactstrap'
-import { Tarjetas, ModalHeader, ModalBody, ModalBodyOverview, ModalBodyImg, InputClose, BtnTrailer, BtnDespues, Badge} from '../Styled/Styles'
+import { Tarjetas, ModalHeader, ModalBody, ModalBodyOverview, ModalBodyImg, InputClose, BtnTrailer, BtnDespues, Badge, ImgCard} from '../Styled/Styles'
 import ModalVideo from './ModalVideo';
 
 
@@ -23,7 +23,7 @@ const Cards = ({ personaje }) => {
         <Tarjetas onClick={openOverview} >
             <div className="tarjetas">
                 <Badge >⭐{personaje.vote_average.toFixed(1)}</Badge>
-                <img src={poster} className="card-img-top" height="330px" alt={personaje.title} />
+                <ImgCard src={poster} className="card-img-top" height="330px" alt={personaje.title} />
             </div>
 
             {/* <iframe src='https://www.youtube.com/embed/E7wJTI-1dvQ'

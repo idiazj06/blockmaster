@@ -1,28 +1,36 @@
 import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useHistory } from 'react-router-dom'
 import { IoPersonCircleSharp } from "react-icons/io5";
-import { Perfil} from './Styled/Styles'
+import { Perfil } from './Styled/Styles'
+import { InputSearch, ButtonSearch, FormSearch } from './Styled/Styles'
+import { FaSearch } from 'react-icons/fa';
 
-const NavBar = ({estado, estadoSearch}) => {
+const NavBar = ({ estado, estadoSearch }) => {
 
-    const handleClick = (e) =>{
+    const history = useHistory()
+
+    const handleClick = (e) => {
         e.preventDefault();
         estado(e.target.name)
     }
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = (e) => {
         e.preventDefault();
     }
 
-    const handleInputChange = (e) =>{
+    const handleInputChange = (e) => {
         estadoSearch(e.target.value)
     }
-    
+
+    const handleRedirect = (e) => {
+        history.push('/perfil')
+    }
+
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light ">
+            <nav className="navbar navbar-expand-lg navbar-light text-ceNter ">
                 <div className="container-fluid">
                     <Link className="navbar-brand text-white" to="/Peliculas"><img src="https://res.cloudinary.com/duaokxfsp/image/upload/v1631319195/BLOCKMASTER/logo-blockBuster_1_ecwv3y.png" alt="" /></Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-conttols="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,65 +38,47 @@ const NavBar = ({estado, estadoSearch}) => {
                     </button>
                     <div className="collapse navbar-collapse " id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            {/* <li className="nav-item ">
-                                <Link 
-                                className="nav-link text-white" 
-                                to="/"
-                                >Home</Link>
-                            </li>
-                            <li className="nav-item ">
-                                <Link 
-                                className="nav-link text-white" 
-                                to="/Login"
-                                >Login</Link>
-                            </li>
-                            <li className="nav-item ">
-                                <Link                                
-                                className="nav-link text-white" 
-                                to="/Register"
-                                >Register</Link>
-                            </li> */}
                             <li className="nav-item ">
                                 <NavLink
-                                name="Todas las peliculas"
-                                className="nav-link text-white" 
-                                to="/Peliculas"
-                                onClick={handleClick}
+                                    name="Todas las peliculas"
+                                    className="nav-link text-white"
+                                    to="/Peliculas"
+                                    onClick={handleClick}
                                 >Todas</NavLink>
                             </li>
                             <li className="nav-item ">
                                 <NavLink
-                                name="Peliculas más valoradas"
-                                className="nav-link text-white" 
-                                to="/Peliculas"
-                                onClick={handleClick}
+                                    name="Peliculas más valoradas"
+                                    className="nav-link text-white"
+                                    to="/Peliculas"
+                                    onClick={handleClick}
                                 >Mas Valoradas</NavLink>
                             </li>
                             <li className="nav-item ">
                                 <NavLink
-                                name="Peliculas menos valoradas"
-                                className="nav-link text-white" 
-                                to="/Peliculas"
-                                onClick={handleClick}
+                                    name="Peliculas menos valoradas"
+                                    className="nav-link text-white"
+                                    to="/Peliculas"
+                                    onClick={handleClick}
                                 >Menos Valoradas</NavLink>
                             </li>
                         </ul>
-                        
-                        <form className="d-flex" onSubmit={handleSubmit}>
-                        <input 
-                        type="text" 
-                        placeholder="Buscar tu pelicula favorita" 
-                        onChange={handleInputChange} 
-                        />
 
-                            <button className="btn btn-outline-success" type="submit">Search</button>
-                        </form>
+                        <FormSearch className="d-flex" onSubmit={handleSubmit}>
+                            <InputSearch
+                                type="text"
+                                placeholder="Buscar tu pelicula favorita"
+                                onChange={handleInputChange}
+                            />
+
+                            <ButtonSearch  type="submit"><FaSearch/></ButtonSearch>
+                        </FormSearch>
 
                         <Perfil className="perfil" >
-                            <IoPersonCircleSharp/>
+                            <IoPersonCircleSharp onClick={handleRedirect} />
                         </Perfil>
-                            
-                            
+
+
                     </div>
                 </div>
             </nav>

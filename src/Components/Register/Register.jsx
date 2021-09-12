@@ -1,16 +1,20 @@
 import React, { useState } from 'react'
 import RegisterForm from './RegisterForm'
-
+import Swal from 'sweetalert2'
 
 import axios from 'axios'
 import md5 from 'md5'
 import uuid from 'react-uuid'
 
-import {Contenedor} from '../Styled/Styles'
+import { Contenedor } from '../Styled/Styles'
+import { useHistory } from 'react-router-dom'
 
 const url = 'https://api-blockmaster.herokuapp.com/users' //Data de usuarios
 
 const Register = () => {
+
+    const history = useHistory()
+
     const [user, setUser] = useState({
         id: '',
         nombre: '',
@@ -20,30 +24,41 @@ const Register = () => {
         password: ''
     })
 
-    const [error, setError]= useState('')
+    const [error, setError] = useState('')
 
-    const Registro = async datos =>{
+    const Registro = async datos => {
         console.log(datos)
         await axios.post(url, {
             id: uuid,
             nombre: datos.nombre,
-            apellido:datos.apellido,
-            email: datos.email ,
+            apellido: datos.apellido,
+            email: datos.email,
             username: datos.username,
-            password: md5(datos.password)
+            password: md5(datos.password),
+            ImgPerfil: datos.ImgPerfil
         }).then(Respuesta => {
-            alert('Usuario Registrado')
+            Swal.fire(`Usuario registrado con exito`)
+                    .then(response=>{
+                        console.log(response)
+                        if(response.isConfirmed === true){
+                            handleRedirect()
+                        }
+                    });
         }).catch(error => {
             console.log(error.message);
         })
     }
 
-
-
+    const handleRedirect = () => {
+        history.push('/')
+    }
+    
     return (
-        <Contenedor>
-            <RegisterForm Registro={Registro} error={error} />
-        </Contenedor>
+        
+            <Contenedor>
+                <RegisterForm Registro={Registro} error={error} />
+            </Contenedor>
+        
     )
 }
 
