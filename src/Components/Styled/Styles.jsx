@@ -42,15 +42,18 @@ const buttonCerrarModal = styled.input`
 
 const ModalBodyStyle = styled.div`
     display: flex;
+    flex-wrap:wrap;
+    justify-content:center;
     color:white;
     padding:20px;
 `;
 
 const ModalBodyOverviewStyle = styled.div`
-    display: flex;
+    display: flex;    
     flex-direction: column;
     text-align:justify;
     padding:20px;
+    align-items:center
 `;
 
 const ModalBodyImgStyle = styled.img`

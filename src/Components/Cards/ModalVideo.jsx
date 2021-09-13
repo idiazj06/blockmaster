@@ -21,7 +21,7 @@ const ModalVideo = ({ item }) => {
 
     return (
         <div>
-            <iframe width="1080" height="500" 
+            <iframe width="360px" height="500" 
             src={`https://www.youtube.com/embed/${getVideo}` }
             title="YouTube video player" 
             frameBorder="0" 

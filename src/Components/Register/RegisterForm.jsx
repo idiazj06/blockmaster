@@ -97,7 +97,7 @@ const RegisterForm = ({Registro,error}) => {
                     value="Registrarme"
                 />
 
-                <span>¿Ya tienes una cuenta? <Link oncClick={handleRedirect}>Inicia Sesion</Link></span>
+                <span>¿Ya tienes una cuenta? <Link to="/blockmaster/">Inicia Sesion</Link></span>
             </Formulario>
         </>
     )
