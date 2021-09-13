@@ -21,9 +21,9 @@ export default class AppRouter extends Component {
             <div>
                <Router>               
                     <Switch>                        
-                        <Route exact  path="/Perfil" component={Perfil}  />
-                        <Route exact  path="/Register" component={Register}  />
-                        <Route exact  path="/Peliculas" component={AppBM}  />
+                        <Route   path="/Perfil" component={Perfil}  />                        
+                        <Route   path="/Peliculas" component={AppBM}  />
+                        <Route   path="/blockmaster/register" component={Register}  />
                         <Route exact  path="/blockmaster/" component={Login}  />
                     </Switch>                  
                </Router> 
