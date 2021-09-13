@@ -50,7 +50,7 @@ const Register = () => {
     }
 
     const handleRedirect = () => {
-        history.push('/blockmaster')
+        history.push('/blockmaster/')
     }
     
     return (
