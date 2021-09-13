@@ -57,7 +57,7 @@ const Login = () => {
     }
 
     const handleRedirect = () => {
-        history.push('/peliculas')
+        history.push('/blockmaster/peliculas')
     }
 
     const subirData = () => {
