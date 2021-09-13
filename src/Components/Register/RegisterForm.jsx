@@ -1,10 +1,11 @@
 import React, {useState} from 'react'
 import { Formulario, Labels, Inputs, Buttons} from '../Styled/Styles'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useHistory } from 'react-router-dom'
 import { fileUpload } from '../../Helpers/fileUpload' 
 
 
 const RegisterForm = ({Registro,error}) => {
+    const history = useHistory()
 
     const [datos,setDatos] = useState({
         nombre: '',
@@ -27,10 +28,12 @@ const RegisterForm = ({Registro,error}) => {
             setDatos({...datos,ImgPerfil:response})
         }).catch(error=>{
             console.log(error)
-        })
-
-                
+        })                
     } 
+
+    const handleRedirect = () => {
+        history.push('/blockmaster/')
+    }
 
     
     
@@ -94,7 +97,7 @@ const RegisterForm = ({Registro,error}) => {
                     value="Registrarme"
                 />
 
-                <span>¿Ya tienes una cuenta? <Link to="/blockmaster/">Inicia Sesion</Link></span>
+                <span>¿Ya tienes una cuenta? <Link oncClick={handleRedirect}>Inicia Sesion</Link></span>
             </Formulario>
         </>
     )

@@ -3,8 +3,8 @@ import { Modal } from 'reactstrap'
 import { ContenedorPerfil, ContenedorSpans, ReturnHome, FormPerfil, InputFormPerfil, ButtonFormPerfil, ImgPerfil, InputClose, ModalHeader, LabelFormPerfil, SpanEditar, SpanEliminar } from './Styled/Styles'
 import axios from 'axios'
 import md5 from 'md5'
-import uuid from 'react-uuid'
 import { Link, NavLink, useHistory } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 import { FaHome } from 'react-icons/fa';
 
@@ -16,6 +16,7 @@ const Perfil = () => {
     const [datosPerfil, setDatosPerfil] = useState('')
     const [datosEditados, setDatosEditados] = useState('')
     const [modal, setModal] = useState(false)
+    const history = useHistory()
 
 
     useEffect(() => {
@@ -60,7 +61,7 @@ const Perfil = () => {
             username: datosEditados.username,
             password: md5(datosEditados.password)
         }).then(Respuesta => {
-            alert('Datos actualizados')
+            Swal.fire('Datos actualizados')
         }).catch(error => {
             console.log(error.message);
         })
@@ -69,8 +70,14 @@ const Perfil = () => {
     const eliminarPerfil = async () => {
         await axios.delete(`${url}/${datosSesion.id}`)
             .then(Respuesta => {
-                alert('Cuenta Eliminada')
+                Swal.fire({title:'Cuenta eliminada',icon:'warning'});
+                handleRedirect()
             })
+    }
+
+
+    const handleRedirect = () => {
+        history.push('/blockmaster/')
     }
 
     console.log(datosSesion)
@@ -86,7 +93,7 @@ const Perfil = () => {
 
         <>
             <ReturnHome>
-                <Link to="/Peliculas"><FaHome style={styleLinkHome} /></Link>
+                <Link to="/blockmaster/peliculas"><FaHome style={styleLinkHome} /></Link>
             </ReturnHome>
             <ContenedorPerfil>
 
