@@ -25,7 +25,7 @@ const NavBar = ({ estado, estadoSearch }) => {
     }
 
     const handleRedirect = (e) => {
-        history.push('/perfil')
+        history.push('/blockmaster/perfil')
     }
 
     return (
